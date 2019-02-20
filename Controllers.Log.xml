@@ -1,0 +1,86 @@
+<log xmlns="urn:schemas-codeontime-com:xml-builder" xmlns:aquarium="urn:schemas-codeontime-com:data-aquarium" xmlns:a="urn:schemas-codeontime-com:data-aquarium">
+  <c y="NodeSet" t="2018-12-23T00:02:23">
+    <controller name="SystemMenu" />
+    <actionGroup id="ag3" />
+    <insert type="action">
+      <CommandName>Custom</CommandName>
+      <CommandArgument>SMTD</CommandArgument>
+      <HeaderText>SiteMap To DB</HeaderText>
+      <CausesValidation>true</CausesValidation>
+    </insert>
+  </c>
+  <c y="NodeSet" t="2018-12-23T00:03:25">
+    <controller name="SystemMenu" />
+    <actionGroup id="ag3" />
+    <insert type="action">
+      <CommandName>Custom</CommandName>
+      <CommandArgument>DTPMS</CommandArgument>
+      <HeaderText>DB To Permission</HeaderText>
+      <CausesValidation>true</CausesValidation>
+    </insert>
+  </c>
+  <c y="NodeSet" t="2018-12-23T00:03:58">
+    <controller name="SystemMenu" />
+    <insert type="rule">
+      <Type>Code</Type>
+      <CommandName>Custom</CommandName>
+      <CommandArgument>SMTD</CommandArgument>
+      <Phase>Execute</Phase>
+    </insert>
+  </c>
+  <c y="NodeSet" t="2018-12-23T00:04:33">
+    <controller name="SystemMenu" />
+    <insert type="rule">
+      <Type>Code</Type>
+      <CommandName>Custom</CommandName>
+      <CommandArgument>DTPMS</CommandArgument>
+      <Phase>Execute</Phase>
+    </insert>
+  </c>
+  <c y="NodeSet" t="2018-12-23T02:53:42">
+    <controller name="SystemMenu" />
+    <view id="grid1" />
+    <dataField fieldName="PageUrl" />
+    <move>
+      <controller name="SystemMenu" />
+      <view id="grid1" />
+      <dataField fieldName="PageTitle" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2018-12-23T02:53:48">
+    <controller name="SystemMenu" />
+    <view id="grid1" />
+    <dataField fieldName="PageDescription" />
+    <before>
+      <controller name="SystemMenu" />
+      <view id="grid1" />
+      <dataField fieldName="PageUrl" />
+    </before>
+  </c>
+  <c y="NodeSet" t="2018-12-23T02:53:57">
+    <controller name="SystemMenu" />
+    <view id="grid1" />
+    <dataField fieldName="PageUrl" />
+    <before>
+      <controller name="SystemMenu" />
+      <view id="grid1" />
+      <dataField fieldName="PageName" />
+    </before>
+  </c>
+  <c y="NodeSet" t="2018-12-23T02:54:12">
+    <controller name="SystemMenu" />
+    <view id="grid1" />
+    <dataField fieldName="CreateBy" />
+    <before>
+      <controller name="SystemMenu" />
+      <view id="grid1" />
+      <dataField fieldName="PageRoles" />
+    </before>
+  </c>
+  <c y="NodeSet" t="2018-12-23T06:12:18">
+    <controller name="SystemMenu" />
+    <actionGroup id="ag3" />
+    <action id="a1" />
+    <delete />
+  </c>
+</log>

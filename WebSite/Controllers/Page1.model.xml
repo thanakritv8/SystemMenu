@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Page1" alias="Page1" created="2019-02-20T08:49:00" modified="2019-02-20T08:49:00" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="seq" fieldName="Seq" label="Seq" />
+    <column name="A" fieldName="A" label="A" />
+    <column name="B" fieldName="B" label="B" />
+    <column name="C" fieldName="C" label="C" />
+  </columns>
+</dataModel>

@@ -1,0 +1,321 @@
+<application snapshot="true" integrity="checked" xmlns="urn:schemas-codeontime-com:data-aquarium-application" xmlns:m="urn:codeontime:data-map" xmlns:dm="urn:schemas-codeontime-com:data-model">
+  <pages xmlns="urn:schemas-codeontime-com:data-aquarium-application">
+    <page name="Home" title="^HomeTitle^Start^HomeTitle^" description="^HomeDesc^Application home page^HomeDesc^" path="^HomePath^Home^HomePath^" style="HomePage" customStyle="Wide" index="1000">
+      <containers>
+        <container id="container1" flow="NewRow" />
+      </containers>
+      <controls>
+        <control id="control1" name="TableOfContents" container="container1" />
+      </controls>
+    </page>
+    <page name="Membership" title="^MembershipTitle^Membership Manager^MembershipTitle^" description="^MembershipDesc^User and role manager^MembershipDesc^" roles="Administrators" path="^MembershipPath^Membership^MembershipPath^" style="UsersPage" index="1050">
+      <containers>
+        <container id="container1" flow="NewRow" />
+      </containers>
+      <about>^MembershipAbout^This page allows to manage roles and users.^MembershipAbout^</about>
+      <controls>
+        <control id="control1" name="MembershipManager" container="container1" />
+      </controls>
+    </page>
+    <page name="SystemMenu" title="System Menu" description="View System Menu" index="1060" path="System Menu" roles="Administrators,User" useExtenders="false">
+      <containers>
+        <container id="container1" flow="NewRow" />
+      </containers>
+      <dataViews>
+        <dataView id="view1" controller="SystemMenu" view="grid1" showInSummary="true" container="container1" activator="None" text="" showModalForms="true" />
+      </dataViews>
+      <controls />
+      <about>This page allows system menu management.</about>
+    </page>
+    <page name="Pages" path="Pages" index="1070" title="Pages" roles="*" useExtenders="false" generate="Always" />
+    <page name="Page1" title="Page1" description="View Page1" index="1080" path="Pages | Page1">
+      <containers>
+        <container id="container1" flow="NewRow" />
+      </containers>
+      <dataViews>
+        <dataView id="view1" controller="Page1" view="grid1" showInSummary="true" container="container1" activator="None" text="" showModalForms="true" />
+      </dataViews>
+      <controls />
+      <about>This page allows page1 management.</about>
+    </page>
+    <page name="Page2" title="Page2" description="View Page2" index="1090" path="Pages | Page2" useExtenders="false">
+      <containers>
+        <container id="container1" flow="NewRow" />
+      </containers>
+      <dataViews>
+        <dataView id="view1" controller="Page2" view="grid1" showInSummary="true" container="container1" activator="None" text="" showModalForms="true" />
+      </dataViews>
+      <controls />
+      <about>This page allows page2 management.</about>
+    </page>
+    <page name="Page3" title="Page3" description="View Page3" index="1100" path="Pages | Page3">
+      <containers>
+        <container id="container1" flow="NewRow" />
+      </containers>
+      <dataViews>
+        <dataView id="view1" controller="Page3" view="grid1" showInSummary="true" container="container1" activator="None" text="" showModalForms="true" />
+      </dataViews>
+      <controls />
+      <about>This page allows page3 management.</about>
+    </page>
+  </pages>
+  <userControls>
+    <userControl name="TableOfContents" prefix="uc" generate="Always">
+      <body>
+                
+&lt;div class="ParaInfo"&gt;
+        ^TocInstruction^Please select a page link in the table of contents below.^TocInstruction^&lt;/div&gt;
+&lt;div class="ParaHeader"&gt;
+    ^TocHeader^Site Map^TocHeader^
+&lt;/div&gt;
+&lt;asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false" /&gt;
+&lt;asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource1" CssClass="TreeView"&gt;
+&lt;/asp:TreeView&gt;
+
+&lt;div id="app-sitemap" data-app-role="page" data-activator="Button|^TocHeader^Site Map^TocHeader^"&gt;
+    &lt;p&gt;
+      &lt;span&gt;^TocInstruction^Please select a page link in the table of contents below.^TocInstruction^&lt;/span&gt;
+    &lt;/p&gt;
+    &lt;div data-app-role="sitemap"&gt;&lt;/div&gt;
+    &lt;p&gt;
+      &lt;br /&gt;
+    &lt;/p&gt;
+&lt;/div&gt;
+              </body>
+    </userControl>
+    <userControl name="RichEditor" prefix="uc" generate="FirstTimeOnly">
+      <body>
+              
+&lt;asp:TextBox ID="TextBox1" runat="server" Columns="50" Rows="10" Height="241px"
+    Width="450px"&gt;&lt;/asp:TextBox&gt;
+&lt;act:HtmlEditorExtender ID="Editor1" runat="server" TargetControlID="TextBox1" EnableSanitization="false"&gt;
+&lt;/act:HtmlEditorExtender&gt;
+            </body>
+    </userControl>
+    <userControl name="Welcome" prefix="uc" generate="Always">
+      <body>
+&lt;div style="padding-left:8px"&gt;&lt;div class="ParaInfo"&gt;
+        ^SignInInstruction^Sign in to access the protected site content.^SignInInstruction^&lt;/div&gt;
+&lt;div class="ParaHeader"&gt;
+    ^SignInHeader^Instructions^SignInHeader^
+&lt;/div&gt;
+&lt;div class="ParaText"&gt;
+    ^SignInPara1^Two standard user accounts are automatically created when application is initialized
+    if membership option has been selected for this application.^SignInPara1^
+&lt;/div&gt;
+                  
+&lt;div class="ParaText"&gt;
+    ^SignInPara2^The administrative account &lt;b&gt;admin&lt;/b&gt; is authorized to access all areas of the
+    web site and membership manager. The standard &lt;b&gt;user&lt;/b&gt; account is allowed to
+    access all areas of the web site with the exception of membership manager.^SignInPara2^&lt;/div&gt;
+                
+&lt;div class="ParaText"&gt;
+    &lt;div style="border: solid 1px black; background-color: InfoBackground; padding: 8px;
+        float: left;"&gt;
+        ^AdminDesc^Administrative account^AdminDesc^:&lt;br /&gt;
+        &lt;b title="User Name"&gt;admin&lt;/b&gt; / &lt;b title="Password"&gt;admin123%&lt;/b&gt;
+        &lt;br /&gt;
+        &lt;br /&gt;
+        ^UserDesc^Standard user account^UserDesc^:&lt;br /&gt;
+        &lt;b title="User Name"&gt;user&lt;/b&gt; / &lt;b title="Password"&gt;user123%&lt;/b&gt;
+    &lt;/div&gt;
+    &lt;div style="clear:both;margin-bottom:8px"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div id="app-welcome" data-app-role="page" data-activator="Button|^SignInHeader^Instructions^SignInHeader^" data-activator-description="^SignInInstruction^Sign in to access the protected site content.^SignInInstruction^"&gt;
+      &lt;p&gt;^SignInInstruction^Sign in to access the protected site content.^SignInInstruction^&lt;/p&gt;
+      &lt;p&gt;
+          ^SignInPara1^Two standard user accounts are automatically created when application is initialized
+  if membership option has been selected for this application.^SignInPara1^
+      &lt;/p&gt;
+
+      &lt;p&gt;
+          ^SignInPara2^The administrative account &lt;b&gt;admin&lt;/b&gt; is authorized to access all areas of the
+  web site and membership manager. The standard &lt;b&gt;user&lt;/b&gt; account is allowed to
+  access all areas of the web site with the exception of membership manager.^SignInPara2^
+      &lt;/p&gt;
+      &lt;p&gt;
+          ^AdminDesc^Administrative account^AdminDesc^:&lt;br /&gt;
+          &lt;b title="User Name"&gt;admin&lt;/b&gt; / &lt;b title="Password"&gt;admin123%&lt;/b&gt;
+      &lt;/p&gt;
+      &lt;p&gt;
+          ^UserDesc^Standard user account^UserDesc^:&lt;br /&gt;
+          &lt;b title="User Name"&gt;user&lt;/b&gt; / &lt;b title="Password"&gt;user123%&lt;/b&gt;
+      &lt;/p&gt;
+      &lt;p&gt;&lt;a href="#" data-role="button" data-inline="true" data-theme="b" data-app-role="loginstatus" data-icon="lock"&gt;Login Status&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;</body>
+    </userControl>
+    <userControl name="MembershipManager" prefix="uc" generate="Always">
+      <body>
+                  
+&lt;aquarium:MembershipManager ID="mm" runat="server" /&gt;
+                </body>
+    </userControl>
+    <userControl name="Login" prefix="uc" generate="FirstTimeOnly">
+      <body>
+              
+&lt;div data-app-role="page" data-content-framework="bootstrap"&gt;
+        &lt;div class="navbar navbar-default navbar-static-top" role="navigation"&gt;
+            &lt;div class="container"&gt;
+                &lt;div class="navbar-header"&gt;
+                    &lt;span class="navbar-brand"&gt;Standalone Login Page&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="navbar-collapse"&gt;
+                    &lt;div class="navbar-form navbar-right" role="form"&gt;
+                        &lt;div class="form-group"&gt;
+                            &lt;input id="login-user-name" type="text" placeholder="Username" class="form-control" autocapitalize="off"&gt;
+                        &lt;/div&gt;
+                        &lt;div class="form-group"&gt;
+                            &lt;input id="login-password" type="password" placeholder="Password" class="form-control"&gt;
+                        &lt;/div&gt;
+                        &lt;button id="login-button" class="btn btn-success"&gt;Sign in&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;!--/.navbar-collapse --&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- Main jumbotron for a primary marketing message or call to action --&gt;
+        &lt;div class="jumbotron"&gt;
+            &lt;div class="container"&gt;
+                &lt;h1&gt;&lt;span class="glyphicon glyphicon-globe"&gt;&lt;/span&gt;&amp;nbsp;Hello, world!&lt;/h1&gt;
+                &lt;p&gt;
+                    This is a template for a custom login screen. It includes a large callout called a jumbotron and three supporting content blocks.
+                    Edit the "~/Login.html" page in Visual Studio to create something more unique.
+                &lt;/p&gt;
+
+                &lt;p&gt;&lt;a href="#" class="btn btn-primary btn-lg" role="button"&gt;Learn more &amp;raquo;&lt;/a&gt;&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="container"&gt;
+
+            &lt;div class="row"&gt;
+                &lt;div class="col-sm-8"&gt;
+                    &lt;h2&gt;^SignInInstruction^Sign in to access the protected site content.^SignInInstruction^&lt;/h2&gt;
+                    &lt;p&gt;
+                        ^SignInPara1^Two standard user accounts are automatically created when application is initialized
+                        if membership option has been selected for this application.^SignInPara1^
+                    &lt;/p&gt;
+
+                    &lt;p&gt;
+                        ^SignInPara2^The administrative account &lt;b&gt;admin&lt;/b&gt; is authorized to access all areas of the
+                        web site and membership manager. The standard &lt;b&gt;user&lt;/b&gt; account is allowed to
+                        access all areas of the web site with the exception of membership manager.^SignInPara2^
+                    &lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class="col-sm-4"&gt;
+                    &lt;div class="panel panel-success"&gt;
+                        &lt;div class="panel-heading"&gt;
+                            &lt;span&gt;^AdminDesc^Administrative account^AdminDesc^&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div class="panel-body"&gt;
+                            User Name: &lt;b title="User Name"&gt;admin&lt;/b&gt;&lt;br /&gt;
+                            Password: &lt;b title="Password"&gt;admin123%&lt;/b&gt;&lt;br /&gt;
+                            &lt;a class="btn btn-link" href="#" id="admin-login"&gt;Login as Admin&lt;/a&gt;&lt;br /&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class="panel panel-default"&gt;
+                        &lt;div class="panel-heading"&gt;
+                            &lt;span&gt;^UserDesc^Standard user account^UserDesc^&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div class="panel-body"&gt;
+                            User Name: &lt;b title="User Name"&gt;user&lt;/b&gt;&lt;br /&gt;
+                            Password: &lt;b title="Password"&gt;user123%&lt;/b&gt;&lt;br /&gt;
+                            &lt;a class="btn btn-link" href="#" id="user-login"&gt;Login as User&lt;/a&gt;&lt;br /&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;hr /&gt;
+            &lt;!-- Example row of columns --&gt;
+            &lt;div class="row"&gt;
+                &lt;div class="col-sm-4"&gt;
+                    &lt;h2&gt;Heading&lt;/h2&gt;
+                    &lt;p&gt;Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. &lt;/p&gt;
+                    &lt;p&gt;&lt;a class="btn btn-default" href="#" role="button"&gt;View details &amp;raquo;&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class="col-sm-4"&gt;
+                    &lt;h2&gt;Heading&lt;/h2&gt;
+                    &lt;p&gt;Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. &lt;/p&gt;
+                    &lt;p&gt;&lt;a class="btn btn-default" href="#" role="button"&gt;View details &amp;raquo;&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class="col-sm-4"&gt;
+                    &lt;h2&gt;Heading&lt;/h2&gt;
+                    &lt;p&gt;Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.&lt;/p&gt;
+                    &lt;p&gt;&lt;a class="btn btn-default" href="#" role="button"&gt;View details &amp;raquo;&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;hr/&gt;
+        &lt;!-- /container --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+
+    &lt;script type="text/javascript"&gt;
+        (function () {
+            var resources = Web.MembershipResources.Messages;
+
+            function performLogin(username, password) {
+
+                var userNameElem = $('#login-user-name'),
+                    passwordElem = $('#login-password');
+
+                if (!username)
+                    username = userNameElem.val();
+                if (!password)
+                    password = passwordElem.val();
+
+                if (!username)
+                    $app.alert(resources.BlankUserName, function () {
+                        userNameElem.focus();
+                    });
+                else if (!password)
+                    $app.alert(resources.BlankPassword, function () {
+                        passwordElem.focus();
+                    });
+                else
+                    $app.login(username, password, true,
+                        function () {
+                            setTimeout(function() {
+                              $app._navigated = true;
+                              var returnUrl = window.location.href.match(/\?ReturnUrl=(.+)$/);
+                              window.location.replace(returnUrl &amp;&amp; decodeURIComponent(returnUrl[1]) || __baseUrl);
+                            });
+                        },
+                        function () {
+                            $app.alert(resources.InvalidUserNameAndPassword, function () {
+                                userNameElem.focus();
+                            });
+                        });
+                return false;
+            }
+
+            $(document)
+                .on('click', '#login-button', function () {
+                    performLogin();
+                })
+                .on('click', '#admin-login', function () {
+                    performLogin('admin', 'admin123%');
+                })
+                .on('click', '#user-login', function () {
+                    performLogin('user', 'user123%');
+                })
+                .on('keydown', 'input', function (event) {
+                    if (event.which == 13) {
+                        event.preventDefault();
+                        performLogin();
+                        return false;
+                    }
+                });
+        })();
+    &lt;/script&gt;
+
+            </body>
+    </userControl>
+  </userControls>
+</application>

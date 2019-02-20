@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode title="^SiteHome^Home^SiteHome^" description="" url="~/Default.aspx">
+    <siteMapNode title="^HomePath^Home^HomePath^" description="^HomeDesc^Application home page^HomeDesc^" url="~/Pages/Home.aspx" cssClass="Wide" />
+    <siteMapNode title="^MembershipPath^Membership^MembershipPath^" description="^MembershipDesc^User and role manager^MembershipDesc^" url="~/Pages/Membership.aspx" roles="Administrators" />
+    <siteMapNode title="System Menu" description="View System Menu" url="~/Pages/SystemMenu.aspx" roles="Administrators" />
+    <siteMapNode title="Pages" description="" url="~/Pages/Pages.aspx" roles="*">
+      <siteMapNode title="Page1" description="View Page1" url="~/Pages/Page1.aspx" roles="Users" />
+      <siteMapNode title="Page2" description="View Page2" url="~/Pages/Page2.aspx" roles="Users" />
+      <siteMapNode title="Page3" description="View Page3" url="~/Pages/Page3.aspx" roles="Devs" />
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

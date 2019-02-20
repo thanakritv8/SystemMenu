@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="Page3" alias="Page3" created="2019-02-20T08:48:59" modified="2019-02-20T08:48:59" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="autoId" fieldName="AutoID" label="auto Id" />
+    <column name="H" fieldName="H" label="H" />
+    <column name="I" fieldName="I" label="I" />
+    <column name="J" fieldName="J" label="J" />
+  </columns>
+</dataModel>

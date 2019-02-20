@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataModel baseSchema="dbo" baseTable="SystemMenu" alias="SystemMenu" created="2018-12-22T23:58:40" modified="2018-12-23T02:44:51" x="20" y="20" xmlns="urn:schemas-codeontime-com:data-model">
+  <foreignKeys />
+  <columns>
+    <column name="PageURL" fieldName="PageUrl" label="Page URL" />
+    <column name="PageDescription" fieldName="PageDescription" label="Page Description" />
+    <column name="CreateBy" fieldName="CreateBy" label="Create By" />
+    <column name="CreateDate" fieldName="CreateDate" label="Create Date" format="g" />
+    <column name="UpdateBy" fieldName="UpdateBy" label="Update By" />
+    <column name="UpdateDate" fieldName="UpdateDate" label="Update Date" format="g" />
+    <column name="PageRoles" fieldName="PageRoles" label="Page Roles" />
+    <column name="PageName" fieldName="PageName" label="Page Name" />
+  </columns>
+</dataModel>
